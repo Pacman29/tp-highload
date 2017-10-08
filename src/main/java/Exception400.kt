@@ -1,0 +1,1 @@
+class Exception400 : ServerException(400,"Bad Request")

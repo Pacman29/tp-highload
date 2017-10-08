@@ -1,0 +1,1 @@
+class Exception405 : ServerException(405,"Method Not Allowed")
