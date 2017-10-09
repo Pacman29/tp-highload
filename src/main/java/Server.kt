@@ -1,6 +1,9 @@
 import kotlinx.coroutines.experimental.CommonPool
-import kotlinx.coroutines.experimental.launch
+import kotlinx.coroutines.experimental.Unconfined
+import kotlinx.coroutines.experimental.*
 import java.net.ServerSocket
+import java.util.concurrent.Executor
+import java.util.concurrent.Executors
 
 class Server {
     companion object {
@@ -9,7 +12,7 @@ class Server {
             println("Server started on port $port")
             while (true) {
                 val accept = socket.accept()
-                launch(CommonPool) {
+                launch(Executors.newCachedThreadPool().asCoroutineDispatcher()) {
                     Client(accept,root).process()
                 }
             }
