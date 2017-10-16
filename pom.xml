@@ -83,7 +83,7 @@
                         <configuration>
                             <archive>
                                 <manifest>
-                                    <mainClass>java.MainKt</mainClass>
+                                    <mainClass>MainKt</mainClass>
                                 </manifest>
                             </archive>
                             <descriptorRefs>
