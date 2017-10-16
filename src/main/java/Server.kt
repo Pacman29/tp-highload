@@ -9,9 +9,11 @@ class Server {
     companion object {
         fun start(port: Int, root: String) {
             val cpus = Runtime.getRuntime().availableProcessors()
+            println("Available Processor: $cpus");
             val myCachedThreadPool = ThreadPoolExecutor(cpus, cpus,
                     60L, TimeUnit.SECONDS,
                     SynchronousQueue());
+            println("TreadPool corePoolSize: ${myCachedThreadPool.corePoolSize} maxPoolSize: ${myCachedThreadPool.maximumPoolSize}")
             val cd = myCachedThreadPool.asCoroutineDispatcher()
 
             val socket = ServerSocket(port)
