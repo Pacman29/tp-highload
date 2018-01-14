@@ -8,13 +8,13 @@ import java.util.concurrent.*
 class Server {
     companion object {
         fun start(port: Int, root: String) {
-            val cpus = Runtime.getRuntime().availableProcessors()
+            val cpus = Runtime.getRuntime().availableProcessors()       // Считывает кол-во процессоров
             println("Available Processor: $cpus");
-            val myCachedThreadPool = ThreadPoolExecutor(cpus, cpus,
+            val myCachedThreadPool = ThreadPoolExecutor(cpus, cpus,     // Создает Pool на основе колва процесоров
                     60L, TimeUnit.SECONDS,
                     SynchronousQueue());
             println("TreadPool corePoolSize: ${myCachedThreadPool.corePoolSize} maxPoolSize: ${myCachedThreadPool.maximumPoolSize}")
-            val cd = myCachedThreadPool.asCoroutineDispatcher()
+            val cd = myCachedThreadPool.asCoroutineDispatcher()         // Использует Pool потоков как Coroutine
 
             val socket = ServerSocket(port)
             println("Server started on port $port")

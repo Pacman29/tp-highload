@@ -12,6 +12,7 @@ class Request() {
 
     constructor(socket: Socket) : this() {
         val request = BufferedReader(InputStreamReader(socket.getInputStream())).readLine()
+        println(request);
         if(request == null){
             throw Exception400();
         }

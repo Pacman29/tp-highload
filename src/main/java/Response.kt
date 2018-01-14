@@ -36,7 +36,8 @@ class Response(var outputStream: OutputStream) {
         sendHeader(code,status,date,file)
         file.inputStream().use { it.copyTo(outputStream) }
 
-    }
+}
+
 
     fun sendHeader(code: Int, status: String, date: Date, file: File){
         commonResponse(code,status,date)
